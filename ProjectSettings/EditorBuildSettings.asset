@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/WheelGame/Scenes/MainMenu.unity
     guid: 8ff23a3f4ff93894599423a89d190edd
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/WheelGame/Scenes/GameScene.unity
     guid: fea20248dc622b6449e627f85fd15ca1
   m_configObjects: {}
