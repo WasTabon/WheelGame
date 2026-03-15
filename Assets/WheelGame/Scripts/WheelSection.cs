@@ -21,11 +21,14 @@ public class WheelSection : MonoBehaviour
     private bool isClickable = true;
     private Tween highlightTween;
     private Tween fragmentTween;
+    private Vector3 fragmentBaseScale = Vector3.one;
 
     private void Awake()
     {
         if (backgroundRenderer != null)
             originalBgColor = backgroundRenderer.color;
+        if (fragmentRenderer != null)
+            fragmentBaseScale = fragmentRenderer.transform.localScale;
     }
 
     private void OnMouseDown()
@@ -35,7 +38,6 @@ public class WheelSection : MonoBehaviour
         if (IsPointerOverUI()) return;
 
         AnimateClick();
-        
         OnSectionClicked?.Invoke(this);
     }
 
@@ -63,8 +65,8 @@ public class WheelSection : MonoBehaviour
             fragmentRenderer.sprite = fragmentSprite;
             fragmentRenderer.color = new Color(1, 1, 1, 0);
             fragmentRenderer.DOFade(1f, 0.3f).SetEase(Ease.OutQuad);
-            fragmentRenderer.transform.localScale = Vector3.one * 0.5f;
-            fragmentRenderer.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.OutBack);
+            fragmentRenderer.transform.localScale = fragmentBaseScale * 0.4f;
+            fragmentRenderer.transform.DOScale(fragmentBaseScale, 0.35f).SetEase(Ease.OutBack);
         }
     }
 
@@ -75,11 +77,11 @@ public class WheelSection : MonoBehaviour
             fragmentTween?.Kill();
             fragmentTween = DOTween.Sequence()
                 .Append(fragmentRenderer.DOFade(0f, 0.2f))
-                .Join(fragmentRenderer.transform.DOScale(Vector3.one * 0.3f, 0.2f).SetEase(Ease.InBack))
+                .Join(fragmentRenderer.transform.DOScale(fragmentBaseScale * 0.3f, 0.2f).SetEase(Ease.InBack))
                 .OnComplete(() =>
                 {
                     fragmentRenderer.sprite = null;
-                    fragmentRenderer.transform.localScale = Vector3.one;
+                    fragmentRenderer.transform.localScale = fragmentBaseScale;
                 });
         }
 

@@ -24,6 +24,11 @@ public class GameSceneUI : MonoBehaviour
 
     [Header("Progress")]
     public TextMeshProUGUI progressText;
+    public TextMeshProUGUI timerText;
+
+    [Header("Panels")]
+    public WinPanel winPanel;
+    public LosePanel losePanel;
 
     private int currentLives = 5;
     private int maxLives = 5;
@@ -117,6 +122,28 @@ public class GameSceneUI : MonoBehaviour
             livesText.color = new Color(0.3f, 1f, 0.4f);
             livesText.DOColor(origColor, 0.5f);
         }
+    }
+
+    public void SetTimer(float time)
+    {
+        if (timerText != null)
+        {
+            int minutes = Mathf.FloorToInt(time / 60f);
+            int seconds = Mathf.FloorToInt(time % 60f);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+    }
+
+    public void ShowWinPanel(int stars, float time, int levelNumber)
+    {
+        if (winPanel != null)
+            winPanel.Show(stars, time, levelNumber);
+    }
+
+    public void ShowLosePanel()
+    {
+        if (losePanel != null)
+            losePanel.Show();
     }
 
     private void OnBackClicked()

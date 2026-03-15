@@ -33,7 +33,7 @@ public class Iteration3_ZodiacSetup : EditorWindow
     private static string dataPath = "Assets/WheelGame/Data";
     private const int CONTOUR_SIZE = 256;
     private const int ICON_SIZE = 128;
-    private const float LINE_THICKNESS = 4f;
+    private const float LINE_THICKNESS = 5.5f;
 
     private struct ZodiacDef
     {
@@ -124,110 +124,110 @@ public class Iteration3_ZodiacSetup : EditorWindow
 
     private static void DrawAries(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawArc(tex, cx - 35, cy + 20, 35, 0, 180, c);
-        DrawArc(tex, cx + 35, cy + 20, 35, 0, 180, c);
-        DrawLine(tex, cx, cy + 55, cx, cy - 60, c);
+        DrawArc(tex, cx - 45, cy + 25, 45, 0, 180, c);
+        DrawArc(tex, cx + 45, cy + 25, 45, 0, 180, c);
+        DrawLine(tex, cx, cy + 70, cx, cy - 75, c);
     }
 
     private static void DrawTaurus(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawArc(tex, cx, cy - 10, 45, 0, 360, c);
-        DrawArc(tex, cx - 30, cy + 55, 25, 20, 160, c);
-        DrawArc(tex, cx + 30, cy + 55, 25, 20, 160, c);
+        DrawArc(tex, cx, cy - 15, 55, 0, 360, c);
+        DrawArc(tex, cx - 35, cy + 65, 30, 20, 160, c);
+        DrawArc(tex, cx + 35, cy + 65, 30, 20, 160, c);
     }
 
     private static void DrawGemini(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawLine(tex, cx - 25, cy + 60, cx - 25, cy - 60, c);
-        DrawLine(tex, cx + 25, cy + 60, cx + 25, cy - 60, c);
-        DrawArc(tex, cx, cy + 60, 40, 200, 340, c);
-        DrawArc(tex, cx, cy - 60, 40, 20, 160, c);
+        DrawLine(tex, cx - 30, cy + 75, cx - 30, cy - 75, c);
+        DrawLine(tex, cx + 30, cy + 75, cx + 30, cy - 75, c);
+        DrawArc(tex, cx, cy + 75, 50, 200, 340, c);
+        DrawArc(tex, cx, cy - 75, 50, 20, 160, c);
     }
 
     private static void DrawCancer(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawArc(tex, cx - 25, cy + 15, 25, 0, 360, c);
-        DrawArc(tex, cx + 25, cy - 15, 25, 0, 360, c);
-        DrawArc(tex, cx, cy + 15, 55, 190, 360, c);
-        DrawArc(tex, cx, cy - 15, 55, 10, 180, c);
+        DrawArc(tex, cx - 30, cy + 20, 30, 0, 360, c);
+        DrawArc(tex, cx + 30, cy - 20, 30, 0, 360, c);
+        DrawArc(tex, cx, cy + 20, 70, 190, 360, c);
+        DrawArc(tex, cx, cy - 20, 70, 10, 180, c);
     }
 
     private static void DrawLeo(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawArc(tex, cx - 20, cy - 25, 30, 0, 360, c);
-        DrawArc(tex, cx + 15, cy + 20, 20, 270, 450, c);
-        DrawLine(tex, cx + 15, cy + 40, cx + 40, cy + 55, c);
-        DrawLine(tex, cx + 40, cy + 55, cx + 25, cy + 70, c);
+        DrawArc(tex, cx - 25, cy - 30, 40, 0, 360, c);
+        DrawArc(tex, cx + 20, cy + 25, 25, 270, 450, c);
+        DrawLine(tex, cx + 20, cy + 50, cx + 50, cy + 70, c);
+        DrawLine(tex, cx + 50, cy + 70, cx + 35, cy + 85, c);
     }
 
     private static void DrawVirgo(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawLine(tex, cx - 50, cy - 50, cx - 50, cy + 30, c);
-        DrawArc(tex, cx - 35, cy + 30, 15, 0, 180, c);
-        DrawLine(tex, cx - 20, cy + 30, cx - 20, cy - 20, c);
-        DrawArc(tex, cx - 5, cy - 20, 15, 0, 180, c);
-        DrawLine(tex, cx + 10, cy - 20, cx + 10, cy + 30, c);
-        DrawArc(tex, cx + 30, cy + 10, 20, 270, 430, c);
+        DrawLine(tex, cx - 60, cy - 65, cx - 60, cy + 40, c);
+        DrawArc(tex, cx - 42, cy + 40, 18, 0, 180, c);
+        DrawLine(tex, cx - 24, cy + 40, cx - 24, cy - 25, c);
+        DrawArc(tex, cx - 6, cy - 25, 18, 0, 180, c);
+        DrawLine(tex, cx + 12, cy - 25, cx + 12, cy + 40, c);
+        DrawArc(tex, cx + 35, cy + 15, 25, 270, 430, c);
     }
 
     private static void DrawLibra(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawLine(tex, cx - 55, cy - 40, cx + 55, cy - 40, c);
-        DrawLine(tex, cx - 55, cy - 55, cx + 55, cy - 55, c);
-        DrawArc(tex, cx, cy + 5, 45, 200, 340, c);
-        DrawLine(tex, cx, cy + 5, cx, cy - 40, c);
+        DrawLine(tex, cx - 70, cy - 50, cx + 70, cy - 50, c);
+        DrawLine(tex, cx - 70, cy - 68, cx + 70, cy - 68, c);
+        DrawArc(tex, cx, cy + 10, 55, 200, 340, c);
+        DrawLine(tex, cx, cy + 10, cx, cy - 50, c);
     }
 
     private static void DrawScorpio(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawLine(tex, cx - 50, cy - 50, cx - 50, cy + 30, c);
-        DrawArc(tex, cx - 35, cy + 30, 15, 0, 180, c);
-        DrawLine(tex, cx - 20, cy + 30, cx - 20, cy - 20, c);
-        DrawArc(tex, cx - 5, cy - 20, 15, 0, 180, c);
-        DrawLine(tex, cx + 10, cy - 20, cx + 10, cy + 30, c);
-        DrawLine(tex, cx + 10, cy + 30, cx + 40, cy + 55, c);
-        DrawLine(tex, cx + 40, cy + 55, cx + 30, cy + 45, c);
-        DrawLine(tex, cx + 40, cy + 55, cx + 40, cy + 42, c);
+        DrawLine(tex, cx - 60, cy - 65, cx - 60, cy + 40, c);
+        DrawArc(tex, cx - 42, cy + 40, 18, 0, 180, c);
+        DrawLine(tex, cx - 24, cy + 40, cx - 24, cy - 25, c);
+        DrawArc(tex, cx - 6, cy - 25, 18, 0, 180, c);
+        DrawLine(tex, cx + 12, cy - 25, cx + 12, cy + 40, c);
+        DrawLine(tex, cx + 12, cy + 40, cx + 50, cy + 70, c);
+        DrawLine(tex, cx + 50, cy + 70, cx + 38, cy + 58, c);
+        DrawLine(tex, cx + 50, cy + 70, cx + 50, cy + 55, c);
     }
 
     private static void DrawSagittarius(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawLine(tex, cx - 45, cy - 45, cx + 45, cy + 45, c);
-        DrawLine(tex, cx + 45, cy + 45, cx + 20, cy + 45, c);
-        DrawLine(tex, cx + 45, cy + 45, cx + 45, cy + 20, c);
-        DrawLine(tex, cx - 15, cy + 15, cx + 15, cy - 15, c);
+        DrawLine(tex, cx - 55, cy - 55, cx + 55, cy + 55, c);
+        DrawLine(tex, cx + 55, cy + 55, cx + 25, cy + 55, c);
+        DrawLine(tex, cx + 55, cy + 55, cx + 55, cy + 25, c);
+        DrawLine(tex, cx - 20, cy + 20, cx + 20, cy - 20, c);
     }
 
     private static void DrawCapricorn(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawLine(tex, cx - 40, cy - 40, cx - 40, cy + 30, c);
-        DrawArc(tex, cx - 20, cy + 30, 20, 0, 180, c);
-        DrawLine(tex, cx, cy + 30, cx, cy - 10, c);
-        DrawArc(tex, cx + 25, cy - 30, 25, 180, 360, c);
-        DrawArc(tex, cx + 35, cy - 50, 15, 0, 270, c);
+        DrawLine(tex, cx - 50, cy - 55, cx - 50, cy + 40, c);
+        DrawArc(tex, cx - 25, cy + 40, 25, 0, 180, c);
+        DrawLine(tex, cx, cy + 40, cx, cy - 15, c);
+        DrawArc(tex, cx + 30, cy - 40, 30, 180, 360, c);
+        DrawArc(tex, cx + 42, cy - 65, 18, 0, 270, c);
     }
 
     private static void DrawAquarius(Texture2D tex, float cx, float cy, Color c)
     {
         for (int row = 0; row < 2; row++)
         {
-            float y = cy + 15 - row * 35;
+            float y = cy + 20 - row * 45;
             for (int i = 0; i < 3; i++)
             {
-                float x1 = cx - 55 + i * 37;
-                float x2 = x1 + 18;
-                float x3 = x2 + 19;
-                DrawLine(tex, x1, y, x2, y + 15, c);
-                DrawLine(tex, x2, y + 15, x3, y, c);
+                float x1 = cx - 70 + i * 47;
+                float x2 = x1 + 23;
+                float x3 = x2 + 24;
+                DrawLine(tex, x1, y, x2, y + 20, c);
+                DrawLine(tex, x2, y + 20, x3, y, c);
             }
         }
     }
 
     private static void DrawPisces(Texture2D tex, float cx, float cy, Color c)
     {
-        DrawArc(tex, cx - 40, cy, 40, 270, 450, c);
-        DrawArc(tex, cx + 40, cy, 40, 90, 270, c);
-        DrawLine(tex, cx - 55, cy, cx + 55, cy, c);
+        DrawArc(tex, cx - 50, cy, 50, 270, 450, c);
+        DrawArc(tex, cx + 50, cy, 50, 90, 270, c);
+        DrawLine(tex, cx - 70, cy, cx + 70, cy, c);
     }
 
     private static void GenerateFragments(Texture2D contour, int zodiacIndex)
@@ -235,15 +235,41 @@ public class Iteration3_ZodiacSetup : EditorWindow
         int fragCount = zodiacs[zodiacIndex].fragmentCount;
         Color[] contourPixels = contour.GetPixels();
 
-        float fragHeight = (float)CONTOUR_SIZE / fragCount;
+        int minY = CONTOUR_SIZE;
+        int maxY = 0;
+        for (int y = 0; y < CONTOUR_SIZE; y++)
+        {
+            for (int x = 0; x < CONTOUR_SIZE; x++)
+            {
+                if (contourPixels[y * CONTOUR_SIZE + x].a > 0.01f)
+                {
+                    if (y < minY) minY = y;
+                    if (y > maxY) maxY = y;
+                }
+            }
+        }
+
+        if (minY >= maxY)
+        {
+            Debug.LogWarning("[Iteration 3] No content found in contour for " + zodiacs[zodiacIndex].name);
+            minY = 0;
+            maxY = CONTOUR_SIZE - 1;
+        }
+
+        int padding = 4;
+        minY = Mathf.Max(0, minY - padding);
+        maxY = Mathf.Min(CONTOUR_SIZE - 1, maxY + padding);
+
+        float contentHeight = maxY - minY;
+        float fragHeight = contentHeight / fragCount;
 
         for (int f = 0; f < fragCount; f++)
         {
             Texture2D fragTex = new Texture2D(CONTOUR_SIZE, CONTOUR_SIZE, TextureFormat.RGBA32, false);
             Color[] fragPixels = new Color[CONTOUR_SIZE * CONTOUR_SIZE];
 
-            int yStart = Mathf.RoundToInt(f * fragHeight);
-            int yEnd = Mathf.RoundToInt((f + 1) * fragHeight);
+            int yStart = Mathf.RoundToInt(minY + f * fragHeight);
+            int yEnd = Mathf.RoundToInt(minY + (f + 1) * fragHeight);
 
             float fadeSize = 3f;
 

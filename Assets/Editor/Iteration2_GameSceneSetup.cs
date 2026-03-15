@@ -311,7 +311,7 @@ public class Iteration2_GameSceneSetup : EditorWindow
             GameObject fragObj = FindOrCreateChild(sectionObj, "Fragment");
             fragObj.transform.localPosition = fragLocalPos;
             fragObj.transform.localRotation = Quaternion.Euler(0, 0, -angle);
-            fragObj.transform.localScale = Vector3.one * 0.6f;
+            fragObj.transform.localScale = Vector3.one * 0.25f;
 
             SpriteRenderer fragRenderer = GetOrAddComponent<SpriteRenderer>(fragObj);
             fragRenderer.sortingOrder = 3;

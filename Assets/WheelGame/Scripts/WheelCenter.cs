@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class WheelCenter : MonoBehaviour
 {
@@ -8,11 +9,9 @@ public class WheelCenter : MonoBehaviour
     public SpriteRenderer contourRenderer;
     public SpriteRenderer glowRenderer;
 
-    [Header("Collected Fragments")]
-    public SpriteRenderer[] collectedFragmentSlots;
-
     private Tween glowTween;
     private int collectedCount;
+    private List<SpriteRenderer> collectedRenderers = new List<SpriteRenderer>();
 
     private void Start()
     {
@@ -40,7 +39,7 @@ public class WheelCenter : MonoBehaviour
         contourRenderer.color = new Color(1, 1, 1, 0);
 
         DOTween.Sequence()
-            .Append(contourRenderer.DOFade(0.6f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(contourRenderer.DOFade(0.4f, 0.5f).SetEase(Ease.OutQuad))
             .Join(contourRenderer.transform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutBack))
             .Append(contourRenderer.transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.InOutQuad));
     }
@@ -49,6 +48,27 @@ public class WheelCenter : MonoBehaviour
     {
         PunchCollect();
         collectedCount++;
+        ShowCollectedFragment(fragmentSprite);
+    }
+
+    private void ShowCollectedFragment(Sprite fragmentSprite)
+    {
+        GameObject fragObj = new GameObject("CollectedFrag_" + collectedCount);
+        fragObj.transform.SetParent(contourRenderer.transform, false);
+        fragObj.transform.localPosition = Vector3.zero;
+        fragObj.transform.localScale = Vector3.one;
+
+        SpriteRenderer sr = fragObj.AddComponent<SpriteRenderer>();
+        sr.sprite = fragmentSprite;
+        sr.sortingOrder = contourRenderer.sortingOrder + collectedCount;
+        sr.color = new Color(0.2f, 1f, 0.4f, 0f);
+
+        collectedRenderers.Add(sr);
+
+        DOTween.Sequence()
+            .Append(sr.DOFade(0.85f, 0.35f).SetEase(Ease.OutQuad))
+            .Join(fragObj.transform.DOScale(Vector3.one * 1.15f, 0.2f).SetEase(Ease.OutBack))
+            .Append(fragObj.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.InOutQuad));
     }
 
     public void PunchCollect()
@@ -74,15 +94,30 @@ public class WheelCenter : MonoBehaviour
 
         if (contourRenderer != null)
             contourRenderer.DOFade(1f, 0.3f);
+
+        foreach (SpriteRenderer sr in collectedRenderers)
+        {
+            if (sr != null)
+                sr.DOColor(new Color(0.3f, 1f, 0.5f, 1f), 0.4f);
+        }
     }
 
     public void ResetCenter()
     {
         collectedCount = 0;
+
+        foreach (SpriteRenderer sr in collectedRenderers)
+        {
+            if (sr != null)
+                Destroy(sr.gameObject);
+        }
+        collectedRenderers.Clear();
+
         if (contourRenderer != null)
         {
             contourRenderer.sprite = null;
             contourRenderer.color = new Color(1, 1, 1, 0);
+            contourRenderer.transform.localScale = Vector3.one;
         }
         transform.localScale = Vector3.one;
     }
