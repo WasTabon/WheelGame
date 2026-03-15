@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aade27eeb65a91c4687908678dd6442c, type: 3}
+  m_Name: Pisces
+  m_EditorClassIdentifier: 
+  zodiacName: Pisces
+  iconSprite: {fileID: 21300000, guid: 3d7bfc90e91bfa544b2bb0a6a19f08f4, type: 3}
+  contourSprite: {fileID: 21300000, guid: d1f401f22307d9e4cbcf05a3bf4973ba, type: 3}
+  fragmentSprites:
+  - {fileID: 21300000, guid: 9704ed0d897d9884cb3279730cb05647, type: 3}
+  - {fileID: 21300000, guid: 887cee8ea8a89174ab4a6959537518b2, type: 3}
+  - {fileID: 21300000, guid: 50eb7e6637104c946938881076ec477e, type: 3}
+  - {fileID: 21300000, guid: d49d1bfbd23421f48a9d40e1575d72b2, type: 3}
+  - {fileID: 21300000, guid: 81ecd41b24bc36041b82a066c1006743, type: 3}
+  fragmentCount: 5

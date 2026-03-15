@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aade27eeb65a91c4687908678dd6442c, type: 3}
+  m_Name: Scorpio
+  m_EditorClassIdentifier: 
+  zodiacName: Scorpio
+  iconSprite: {fileID: 21300000, guid: 7c31b367341bf704ab3566714d9b6535, type: 3}
+  contourSprite: {fileID: 21300000, guid: f2cb30739665f7a40bfffd1f001d06cd, type: 3}
+  fragmentSprites:
+  - {fileID: 21300000, guid: 557680d65b7f21244a44986b462430a5, type: 3}
+  - {fileID: 21300000, guid: bb1a79cdfd749244c8635aeff6a629a0, type: 3}
+  - {fileID: 21300000, guid: cd99b86254b24bc45b69a9e9a02f4138, type: 3}
+  - {fileID: 21300000, guid: 0a7425dba7e6aef4981439adc8b955a7, type: 3}
+  - {fileID: 21300000, guid: 54c85c3f81a37ac4faa249853f6cb8e0, type: 3}
+  fragmentCount: 5
