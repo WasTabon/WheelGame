@@ -6,9 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/WheelGame/Scenes/Bootstrap.unity
+    guid: 4587b407bd414e0459df84627032bf0e
+  - enabled: 1
     path: Assets/WheelGame/Scenes/MainMenu.unity
     guid: 8ff23a3f4ff93894599423a89d190edd
   - enabled: 1
     path: Assets/WheelGame/Scenes/GameScene.unity
     guid: fea20248dc622b6449e627f85fd15ca1
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: ea1833482844d454fb7ec342397cab1f, type: 2}

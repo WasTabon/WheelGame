@@ -44,6 +44,11 @@ public class GameplayManager : MonoBehaviour
             currentLevelData = allLevels[randomIndex];
         }
 
+        if (MusicService.Instance != null && MusicService.Instance.IsLoaded)
+        {
+            MusicService.Instance.PlayGameMusic();
+        }
+
         StartLevel();
     }
 
