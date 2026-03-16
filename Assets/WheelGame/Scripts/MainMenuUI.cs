@@ -17,6 +17,7 @@ public class MainMenuUI : MonoBehaviour
     [Header("Panels")]
     public SettingsPanel settingsPanel;
     public LevelSelectPanel levelSelectPanel;
+    public IAPManager shopPanel;
 
     [Header("Button Containers")]
     public RectTransform playButtonRect;
@@ -72,6 +73,8 @@ public class MainMenuUI : MonoBehaviour
     private void OnShopClicked()
     {
         if (isTransitioning) return;
+        if (shopPanel != null)
+            shopPanel.Show();
     }
 
     private void OnDisable()
