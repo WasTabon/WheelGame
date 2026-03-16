@@ -6404,6 +6404,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1400903273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400903275}
+  - component: {fileID: 1400903274}
+  m_Layer: 0
+  m_Name: MusicReactor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400903274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400903273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6a0a3deb550ca498f95ac4ce5a7070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  spectrumSamples: 256
+  fftWindow: 5
+  bassRangeEnd: 12
+  beatThreshold: 0.15
+  beatCooldown: 0.2
+  energySmoothSpeed: 5
+--- !u!4 &1400903275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400903273}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435248482
 GameObject:
   m_ObjectHideFlags: 0
@@ -6661,6 +6712,7 @@ GameObject:
   - component: {fileID: 1461707346}
   - component: {fileID: 1461707345}
   - component: {fileID: 1461707347}
+  - component: {fileID: 1461707348}
   m_Layer: 0
   m_Name: WheelRoot
   m_TagString: Untagged
@@ -6730,6 +6782,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenWidthPercent: 0.88
   wheelWorldRadius: 2.5
+--- !u!114 &1461707348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461707344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34caf05321d82b6438c7883755ac59e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelController: {fileID: 1461707345}
+  musicReactor: {fileID: 1400903274}
+  minRotationSpeed: 15
+  maxRotationSpeed: 55
+  rotationImpulseOnBeat: 12
+  rotationReturnSpeed: 3
+  basePulseScale: 1
+  beatPulseAmount: 0.1
+  energyPulseAmount: 0.1
+  pulseReturnSpeed: 6
+  glowIntensityMultiplier: 2
 --- !u!1 &1467621720
 GameObject:
   m_ObjectHideFlags: 0
@@ -10177,3 +10252,4 @@ SceneRoots:
   - {fileID: 475821742}
   - {fileID: 406448725}
   - {fileID: 190084708}
+  - {fileID: 1400903275}

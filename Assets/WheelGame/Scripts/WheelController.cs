@@ -14,7 +14,7 @@ public class WheelController : MonoBehaviour
     public float baseRotationSpeed = 30f;
     public float currentRotationSpeed;
 
-    [Header("Pulse")]
+    [Header("Fallback Pulse")]
     public float basePulseScale = 1f;
     public float pulseAmount = 0.03f;
     public float pulseSpeed = 2f;
@@ -24,6 +24,8 @@ public class WheelController : MonoBehaviour
     private float rotationVelocity;
     private float pulseTimer;
     private bool isActive = true;
+    private bool useExternalPulse;
+    private float externalPulseScale = 1f;
 
     private void Awake()
     {
@@ -41,9 +43,31 @@ public class WheelController : MonoBehaviour
         rotationAngle += currentRotationSpeed * Time.deltaTime;
         wheelTransform.rotation = Quaternion.Euler(0, 0, rotationAngle);
 
-        pulseTimer += Time.deltaTime * pulseSpeed;
-        float pulse = basePulseScale + Mathf.Sin(pulseTimer) * pulseAmount;
-        wheelTransform.localScale = Vector3.one * pulse;
+        if (useExternalPulse)
+        {
+            wheelTransform.localScale = Vector3.Lerp(
+                wheelTransform.localScale,
+                Vector3.one * externalPulseScale,
+                Time.deltaTime * 10f
+            );
+        }
+        else
+        {
+            pulseTimer += Time.deltaTime * pulseSpeed;
+            float pulse = basePulseScale + Mathf.Sin(pulseTimer) * pulseAmount;
+            wheelTransform.localScale = Vector3.one * pulse;
+        }
+    }
+
+    public void SetExternalPulse(float scale)
+    {
+        useExternalPulse = true;
+        externalPulseScale = scale;
+    }
+
+    public void DisableExternalPulse()
+    {
+        useExternalPulse = false;
     }
 
     public void SetRotationSpeed(float speed)
@@ -74,6 +98,7 @@ public class WheelController : MonoBehaviour
         targetRotationSpeed = baseRotationSpeed;
         wheelTransform.rotation = Quaternion.identity;
         wheelTransform.localScale = Vector3.one * basePulseScale;
+        useExternalPulse = false;
     }
 
     public WheelSection GetSectionByIndex(int index)
