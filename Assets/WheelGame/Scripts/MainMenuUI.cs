@@ -16,6 +16,7 @@ public class MainMenuUI : MonoBehaviour
 
     [Header("Panels")]
     public SettingsPanel settingsPanel;
+    public LevelSelectPanel levelSelectPanel;
 
     [Header("Button Containers")]
     public RectTransform playButtonRect;
@@ -59,8 +60,7 @@ public class MainMenuUI : MonoBehaviour
     private void OnPlayClicked()
     {
         if (isTransitioning) return;
-        isTransitioning = true;
-        GameManager.Instance.LoadScene("GameScene");
+        levelSelectPanel.Open();
     }
 
     private void OnSettingsClicked()

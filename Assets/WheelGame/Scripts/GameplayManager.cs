@@ -32,16 +32,17 @@ public class GameplayManager : MonoBehaviour
 
     private void Start()
     {
-        int levelIndex = GameManager.Instance.currentLevel - 1;
+        int levelNum = GameManager.Instance.currentLevel;
+        int configNum = LevelSelectPanel.GetConfigForLevel(levelNum);
+        int configIndex = configNum - 1;
 
-        if (levelIndex >= 0 && levelIndex < allLevels.Length)
+        if (configIndex >= 0 && configIndex < allLevels.Length)
         {
-            currentLevelData = allLevels[levelIndex];
+            currentLevelData = allLevels[configIndex];
         }
         else
         {
-            int randomIndex = Random.Range(0, allLevels.Length);
-            currentLevelData = allLevels[randomIndex];
+            currentLevelData = allLevels[Random.Range(0, allLevels.Length)];
         }
 
         if (MusicService.Instance != null && MusicService.Instance.IsLoaded)
@@ -69,7 +70,7 @@ public class GameplayManager : MonoBehaviour
         zodiacsCompleted = 0;
         totalZodiacsInLevel = currentLevelData.zodiacSequence.Length;
 
-        GameSceneUI.Instance.SetLevel(currentLevelData.levelNumber);
+        GameSceneUI.Instance.SetLevel(GameManager.Instance.currentLevel);
         GameSceneUI.Instance.SetLives(lives);
         GameSceneUI.Instance.SetProgress(0, totalZodiacsInLevel);
 
@@ -313,11 +314,13 @@ public class GameplayManager : MonoBehaviour
         UnsubscribeFromSections();
 
         int stars = CalculateStars();
+        int actualLevel = GameManager.Instance.currentLevel;
 
-        GameManager.Instance.UnlockLevel(currentLevelData.levelNumber + 1);
+        GameManager.Instance.UnlockLevel(actualLevel + 1);
+        GameManager.Instance.SaveLevelStars(actualLevel, stars);
         GameManager.Instance.SaveProgress();
 
-        GameSceneUI.Instance.ShowWinPanel(stars, levelTimer, currentLevelData.levelNumber);
+        GameSceneUI.Instance.ShowWinPanel(stars, levelTimer, actualLevel);
     }
 
     private void OnLevelFailed()

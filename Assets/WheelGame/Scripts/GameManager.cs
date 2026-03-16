@@ -98,11 +98,13 @@ public class GameManager : MonoBehaviour
 
     public void UnlockLevel(int level)
     {
-        if (level > maxUnlockedLevel)
-        {
-            maxUnlockedLevel = level;
-            SaveProgress();
-        }
+        ProgressManager.UnlockLevel(level);
+        maxUnlockedLevel = ProgressManager.GetMaxUnlockedLevel();
+    }
+
+    public void SaveLevelStars(int levelNumber, int stars)
+    {
+        ProgressManager.SaveStars(levelNumber, stars);
     }
 
     public void SaveProgress()
@@ -116,7 +118,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadProgress()
     {
-        maxUnlockedLevel = PlayerPrefs.GetInt("MaxUnlockedLevel", 1);
+        maxUnlockedLevel = ProgressManager.GetMaxUnlockedLevel();
         boosterUndo = PlayerPrefs.GetInt("BoosterUndo", 5);
         boosterSlowmo = PlayerPrefs.GetInt("BoosterSlowmo", 5);
         boosterExtraLife = PlayerPrefs.GetInt("BoosterExtraLife", 5);
