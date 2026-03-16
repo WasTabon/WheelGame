@@ -56,7 +56,17 @@ public class GameplayManager : MonoBehaviour
             MusicService.Instance.PlayGameMusic();
         }
 
-        StartLevel();
+        TutorialPanel tutorial = FindObjectOfType<TutorialPanel>(true);
+        if (tutorial != null && tutorial.ShouldShow())
+        {
+            tutorial.OnTutorialComplete -= StartLevel;
+            tutorial.OnTutorialComplete += StartLevel;
+            tutorial.Show();
+        }
+        else
+        {
+            StartLevel();
+        }
     }
 
     private void Update()
