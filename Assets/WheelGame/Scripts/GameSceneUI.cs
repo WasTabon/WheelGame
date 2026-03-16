@@ -29,6 +29,7 @@ public class GameSceneUI : MonoBehaviour
     [Header("Panels")]
     public WinPanel winPanel;
     public LosePanel losePanel;
+    public BoosterUI boosterUI;
 
     private int currentLives = 5;
     private int maxLives = 5;

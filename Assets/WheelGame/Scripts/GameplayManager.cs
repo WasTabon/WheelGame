@@ -25,6 +25,12 @@ public class GameplayManager : MonoBehaviour
     private int totalZodiacsInLevel;
     private int zodiacsCompleted;
 
+    private bool hasUndoData;
+    private WheelSection lastWrongSection;
+    private Sprite lastWrongSprite;
+    private int lastWrongFragId;
+    private bool lastWrongIsCorrect;
+
     private void Awake()
     {
         Instance = this;
@@ -210,6 +216,7 @@ public class GameplayManager : MonoBehaviour
     private void HandleCorrectClick(WheelSection section)
     {
         isProcessingClick = true;
+        ClearUndoData();
 
         section.AnimateCorrect();
 
@@ -259,6 +266,9 @@ public class GameplayManager : MonoBehaviour
     {
         isProcessingClick = true;
 
+        hasUndoData = true;
+        lastWrongSection = section;
+
         section.AnimateWrong();
         lives--;
         GameSceneUI.Instance.AnimateLoseLife();
@@ -272,7 +282,12 @@ public class GameplayManager : MonoBehaviour
         }
         else
         {
-            DOVirtual.DelayedCall(0.5f, () => { isProcessingClick = false; });
+            DOVirtual.DelayedCall(0.5f, () =>
+            {
+                isProcessingClick = false;
+                if (BoosterUI.FindObjectOfType<BoosterUI>() != null)
+                    FindObjectOfType<BoosterUI>().RefreshUI();
+            });
         }
     }
 
@@ -341,19 +356,61 @@ public class GameplayManager : MonoBehaviour
     public void RetryLevel()
     {
         ClearAllSections();
+        ClearUndoData();
+        if (BoosterManager.Instance != null)
+            BoosterManager.Instance.ResetSlowmo();
         wheelController.wheelCenter.ResetCenter();
         StartLevel();
     }
 
     public void NextLevel()
     {
+        if (BoosterManager.Instance != null)
+            BoosterManager.Instance.ResetSlowmo();
         GameManager.Instance.currentLevel++;
         GameManager.Instance.LoadScene("GameScene");
     }
 
     public void GoToMenu()
     {
+        if (BoosterManager.Instance != null)
+            BoosterManager.Instance.ResetSlowmo();
         GameManager.Instance.LoadScene("MainMenu");
+    }
+
+    public bool HasUndoData()
+    {
+        return hasUndoData && lastWrongSection != null && isPlaying;
+    }
+
+    public void ExecuteUndo()
+    {
+        if (!HasUndoData()) return;
+
+        lives++;
+        GameSceneUI.Instance.SetLives(lives);
+        GameSceneUI.Instance.AnimateGainLife();
+
+        hasUndoData = false;
+        lastWrongSection = null;
+    }
+
+    public void AddLife()
+    {
+        lives++;
+        GameSceneUI.Instance.SetLives(lives);
+        GameSceneUI.Instance.AnimateGainLife();
+    }
+
+    public int GetLives()
+    {
+        return lives;
+    }
+
+    private void ClearUndoData()
+    {
+        hasUndoData = false;
+        lastWrongSection = null;
     }
 
     private void ShuffleList<T>(List<T> list)
