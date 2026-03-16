@@ -65,6 +65,9 @@ public class GameplayManager : MonoBehaviour
         {
             levelTimer += Time.deltaTime;
             GameSceneUI.Instance.SetTimer(levelTimer);
+
+            if (UIJuice.Instance != null)
+                UIJuice.Instance.UpdateTimerColor(levelTimer);
         }
     }
 
@@ -79,6 +82,12 @@ public class GameplayManager : MonoBehaviour
         GameSceneUI.Instance.SetLevel(GameManager.Instance.currentLevel);
         GameSceneUI.Instance.SetLives(lives);
         GameSceneUI.Instance.SetProgress(0, totalZodiacsInLevel);
+
+        if (UIJuice.Instance != null)
+        {
+            UIJuice.Instance.SetStarThresholds(currentLevelData.threeStarTime, currentLevelData.twoStarTime);
+            UIJuice.Instance.UpdateLivesWarning(lives);
+        }
 
         SubscribeToSections();
         StartNextZodiac();
@@ -219,9 +228,13 @@ public class GameplayManager : MonoBehaviour
         ClearUndoData();
 
         section.AnimateCorrect();
+        HapticFeedback.Light();
 
         Sprite fragSprite = section.fragmentRenderer.sprite;
         Vector3 worldPos = section.fragmentRenderer.transform.position;
+
+        if (FXManager.Instance != null)
+            FXManager.Instance.PlayCorrect(worldPos);
 
         section.fragmentRenderer.sprite = null;
         section.fragmentRenderer.color = Color.clear;
@@ -246,6 +259,10 @@ public class GameplayManager : MonoBehaviour
             {
                 Destroy(flyObj);
                 wheelController.wheelCenter.OnFragmentCollected(fragSprite);
+
+                if (FXManager.Instance != null)
+                    FXManager.Instance.PlayCollect(centerPos);
+
                 fragmentsRemaining--;
 
                 if (fragmentsRemaining <= 0)
@@ -270,9 +287,17 @@ public class GameplayManager : MonoBehaviour
         lastWrongSection = section;
 
         section.AnimateWrong();
+        HapticFeedback.Heavy();
+
+        if (FXManager.Instance != null)
+            FXManager.Instance.PlayWrong(section.transform.position);
+
         lives--;
         GameSceneUI.Instance.AnimateLoseLife();
         GameSceneUI.Instance.SetLives(lives);
+
+        if (UIJuice.Instance != null)
+            UIJuice.Instance.UpdateLivesWarning(lives);
 
         wheelController.PunchScale(0.04f, 0.3f);
 
@@ -297,6 +322,10 @@ public class GameplayManager : MonoBehaviour
         zodiacsCompleted++;
 
         wheelController.wheelCenter.AnimateComplete();
+        HapticFeedback.Success();
+
+        if (FXManager.Instance != null)
+            FXManager.Instance.PlayCollect(wheelController.wheelCenter.transform.position);
 
         GameSceneUI.Instance.SetProgress(zodiacsCompleted, totalZodiacsInLevel);
 
@@ -327,6 +356,7 @@ public class GameplayManager : MonoBehaviour
     {
         isPlaying = false;
         UnsubscribeFromSections();
+        HapticFeedback.Success();
 
         int stars = CalculateStars();
         int actualLevel = GameManager.Instance.currentLevel;

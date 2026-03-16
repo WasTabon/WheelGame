@@ -82,9 +82,16 @@ public class WinPanel : MonoBehaviour
             currentSequence.InsertCallback(delay, () =>
             {
                 if (earned)
+                {
                     starImages[idx].color = new Color(1f, 0.85f, 0.1f, 1f);
+                    HapticFeedback.Light();
+                    if (FXManager.Instance != null)
+                        FXManager.Instance.PlayStar(starImages[idx].transform.position);
+                }
                 else
+                {
                     starImages[idx].color = new Color(0.3f, 0.3f, 0.35f, 0.5f);
+                }
 
                 starImages[idx].transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.OutBack);
             });
