@@ -51,7 +51,14 @@ public class BootstrapUI : MonoBehaviour
         loader.OnDownloadFailed -= OnFailed;
         loader.OnDownloadFailed += OnFailed;
 
-        DOVirtual.DelayedCall(0.5f, () => loader.StartDownload());
+    #if UNITY_ANDROID
+            if (statusText != null)
+                statusText.text = "Loading...";
+            targetProgress = 1f;
+            DOVirtual.DelayedCall(0.8f, TransitionToMainMenu);
+    #else
+            DOVirtual.DelayedCall(0.5f, () => loader.StartDownload());
+    #endif
     }
 
     private void Update()
