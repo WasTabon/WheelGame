@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pisces
   m_EditorClassIdentifier: 
   zodiacName: Pisces
-  iconSprite: {fileID: 21300000, guid: 3d7bfc90e91bfa544b2bb0a6a19f08f4, type: 3}
+  iconSprite: {fileID: 21300000, guid: e17d2584348d8344fbcbb22c7b019d49, type: 3}
   contourSprite: {fileID: 21300000, guid: d1f401f22307d9e4cbcf05a3bf4973ba, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: 9704ed0d897d9884cb3279730cb05647, type: 3}

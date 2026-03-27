@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Libra
   m_EditorClassIdentifier: 
   zodiacName: Libra
-  iconSprite: {fileID: 21300000, guid: 126372f20565bed4e860462a4770e9d6, type: 3}
+  iconSprite: {fileID: 21300000, guid: 235e1565d62c52448b2685d5a0dde016, type: 3}
   contourSprite: {fileID: 21300000, guid: e11b13515d68e3341b1d8b4f56247ba9, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: fe0e91bcdef236c47bed5929d4c308f4, type: 3}

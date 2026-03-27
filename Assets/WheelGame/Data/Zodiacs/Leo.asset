@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Leo
   m_EditorClassIdentifier: 
   zodiacName: Leo
-  iconSprite: {fileID: 21300000, guid: e7a937712574ca4438a4ca7c0978f456, type: 3}
+  iconSprite: {fileID: 21300000, guid: 44b580368ed629841a3005c35e3c5d43, type: 3}
   contourSprite: {fileID: 21300000, guid: 72f744943d1d47243b3c04e5be5cce11, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: 6e7236cb619df1e4dacaf011f5b63d9d, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aquarius
   m_EditorClassIdentifier: 
   zodiacName: Aquarius
-  iconSprite: {fileID: 21300000, guid: 5490f4fc33702804fa0a5084b7da5c02, type: 3}
+  iconSprite: {fileID: 21300000, guid: a03b6c8a1c73bd4478467d689e49428d, type: 3}
   contourSprite: {fileID: 21300000, guid: d7c87973826d68346a72c4f3e315c727, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: 6dcd68695874596429907a8ee6693276, type: 3}

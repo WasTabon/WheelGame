@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aries
   m_EditorClassIdentifier: 
   zodiacName: Aries
-  iconSprite: {fileID: 21300000, guid: 8d396943028056e44ba4e9583f778474, type: 3}
+  iconSprite: {fileID: 21300000, guid: 2434992d878a77e43b7f339157ed7e92, type: 3}
   contourSprite: {fileID: 21300000, guid: 01fabd0916d4fff4591fdd8ac3754cf8, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: 9f30ac6818680444bbc1d3fa82d736f1, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Capricorn
   m_EditorClassIdentifier: 
   zodiacName: Capricorn
-  iconSprite: {fileID: 21300000, guid: 890947785e7d6a6449718f30ea7b8f24, type: 3}
+  iconSprite: {fileID: 21300000, guid: 02b3a135668f6254da6158f4731d219c, type: 3}
   contourSprite: {fileID: 21300000, guid: ec830a1654d80ba4caa6f1a69c0ba58a, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: b30e753e6f3aa0245aebd6d85f888b9f, type: 3}

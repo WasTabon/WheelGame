@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scorpio
   m_EditorClassIdentifier: 
   zodiacName: Scorpio
-  iconSprite: {fileID: 21300000, guid: 7c31b367341bf704ab3566714d9b6535, type: 3}
+  iconSprite: {fileID: 21300000, guid: 1e2d68f73bde3b44fb4696d97e6cdbbc, type: 3}
   contourSprite: {fileID: 21300000, guid: f2cb30739665f7a40bfffd1f001d06cd, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: 557680d65b7f21244a44986b462430a5, type: 3}

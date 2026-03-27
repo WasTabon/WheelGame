@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sagittarius
   m_EditorClassIdentifier: 
   zodiacName: Sagittarius
-  iconSprite: {fileID: 21300000, guid: 5f4115802ffc2474889b5ac7ce042606, type: 3}
+  iconSprite: {fileID: 21300000, guid: 6ad681f7f08e0d445aae202f69891088, type: 3}
   contourSprite: {fileID: 21300000, guid: 6f56231dd85b6b743861c80d5017980d, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: 4a90564f12bf47b489f1a10d2091b889, type: 3}

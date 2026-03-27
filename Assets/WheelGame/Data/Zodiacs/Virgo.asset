@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Virgo
   m_EditorClassIdentifier: 
   zodiacName: Virgo
-  iconSprite: {fileID: 21300000, guid: 83dcced1864a9f545be34d929d92161f, type: 3}
+  iconSprite: {fileID: 21300000, guid: ef53f61f88569ee41a3f441c1cf0a2ee, type: 3}
   contourSprite: {fileID: 21300000, guid: 54c0e2c24f4d5354db18fe374effbd24, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: f838ce0b033cd0445bf4bcd4f02d5cd3, type: 3}

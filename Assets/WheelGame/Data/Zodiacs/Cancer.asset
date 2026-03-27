@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cancer
   m_EditorClassIdentifier: 
   zodiacName: Cancer
-  iconSprite: {fileID: 21300000, guid: 20b820fa77d60a44e888d1cbf6fd7b23, type: 3}
+  iconSprite: {fileID: 21300000, guid: c1194e428d0dd0d42b23f0cebe4ec846, type: 3}
   contourSprite: {fileID: 21300000, guid: ebe420a65c4fb4245af8d30e92529ae9, type: 3}
   fragmentSprites:
   - {fileID: 21300000, guid: abb78365a69ae484e81c804c2354593c, type: 3}
