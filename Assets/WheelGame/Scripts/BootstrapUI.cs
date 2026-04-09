@@ -57,7 +57,7 @@ public class BootstrapUI : MonoBehaviour
             targetProgress = 1f;
             DOVirtual.DelayedCall(0.8f, TransitionToMainMenu);
     #else
-            DOVirtual.DelayedCall(0.5f, () => loader.StartDownload());
+            DOVirtual.DelayedCall(0.5f, () => FakeLoad());
     #endif
     }
 
@@ -71,6 +71,14 @@ public class BootstrapUI : MonoBehaviour
             if (progressPercentText != null)
                 progressPercentText.text = Mathf.RoundToInt(displayProgress * 100f) + "%";
         }
+    }
+    
+    private void FakeLoad()
+    {
+        targetProgress = 1f;
+        if (statusText != null)
+            statusText.text = "Loading...";
+        DOVirtual.DelayedCall(0.8f, TransitionToMainMenu);
     }
 
     private void AnimateEntrance()
